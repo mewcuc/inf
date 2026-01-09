@@ -18,3 +18,38 @@ for N in range(0, 256):                   # 2. Все цифры двоично�
         print(N)
 
 ##################################################################################################################################
+
+def tr(n):
+    res = ''
+    if n == 0:
+        return  0
+    while n > 0:
+        m = n % 3
+        res = str(m) + res
+        n = n // 3
+    return res
+
+def per(n): # перевод из троичной системы счисления в десятиричную
+    res = 0
+    for i in range(len(n)):
+        res = res * 3 + int(n[i])
+    return res
+
+mas = []
+
+for N in range(1, 1000):
+    n = tr(N)
+    if N % 3 == 0:
+        m = n[-2:]
+        n += m
+    elif N % 3 != 0:
+        su = (n.count('1') + (n.count('2') * 2)) * 3
+        n = n + tr(su)
+
+    r = per(n)
+    if r % 2 != 0 and r > 208:
+        mas.append(r)
+
+print(min(mas))
+
+
