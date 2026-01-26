@@ -1,10 +1,10 @@
 # обычное нахождение делителей у числа, оптимизированным способом
 def f(n):
     res = []
-    for i in range(2, int((n**0.5)+1)):
-        if n % i == 0:
-            res.append(i)
-            res.append(n//i)
+    for d in range(2, int((n**0.5)+1)):
+        if n % d == 0:
+            res.append(d)
+            res.append(n//d)
 
     return list(set(res))
 
